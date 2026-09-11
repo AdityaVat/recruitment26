@@ -38,6 +38,17 @@
     allow="clipboard-read; clipboard-write">
   </iframe>
 
+    <script>
+    const APPS_SCRIPT_BASE_URL = "https://script.google.com/macros/s/AKfycby-IM3coZunylbsUiV3QUF-HeF1MyTvvAz-srK0hyrtpj98ASmxD56QnlhIMIhzAzvx/exec";
+    const currentParams = window.location.search;
+    document.getElementById('appFrame').src = APPS_SCRIPT_BASE_URL + currentParams;
+    
+    // Clean query parameters from address bar so browser refresh does not re-send redeemed OAuth code
+    if (window.location.search && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  </script>
+
   <script>
     const APPS_SCRIPT_BASE_URL = "https://script.google.com/macros/s/AKfycby-IM3coZunylbsUiV3QUF-HeF1MyTvvAz-srK0hyrtpj98ASmxD56QnlhIMIhzAzvx/exec";
     const currentParams = window.location.search;
